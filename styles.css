@@ -1,10 +1,14 @@
 /* Set up the body as a grid container */
 body {
     display: grid;
-    grid-template-columns: 200px 1fr; /* Sidebar on the left (200px), content on the right */
-    grid-template-rows: auto 1fr; /* First row for header, second for main content */
-    height: 100vh; /* Full viewport height */
-    margin: 0; /* Remove default margin */
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "sidebar header"
+        "sidebar mainContent";
+    height: 100vh;
+    margin: 0;
+    border: 2px dashed black;
 }
 
 /* Sidebar */
@@ -106,15 +110,28 @@ button {
 .mainPane {
     grid-column: 1; /* Projects container in the first column */
     display: grid;
-    place-items: center;
+    place-items: start; /* Align items to the start (top left) */
     border: 2px solid red;
+    grid-template-columns: 1fr; /* Take up the full width available */
 }
 
+/* Projects Container */
 .projects {
     border: 2px solid red;
     display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: repeat(2, 1fr); /* 2 rows */
+    gap: 10px;
+    height: 100%; /* Ensure it fills the space */
+    padding: 10px; /* Padding for spacing between content */
+}
+
+/* Project Boxes */
+.projectBox {
+    border: 2px solid red;
+    display: grid;
     place-items: center;
-    height: 400px;
+    height: 100%; /* Each project box takes full height of its grid cell */
 }
 
 /* Right Pane (Announcements and Trending) */
@@ -131,4 +148,17 @@ button {
     display: grid;
     place-items: center;
     height: 200px; /* Adjust height as needed */
+}
+
+.announcementBox, .trendingBox {
+    display: grid;
+    grid-template-columns: 1fr; /* Stack the sections vertically */
+    gap: 10px;
+}
+
+.announcementItem, .trendingItem {
+    border: 2px solid red;
+    display: grid;
+    place-items: center;
+    height: 60px; /* Adjust height as needed */
 }
