@@ -1,0 +1,134 @@
+/* Set up the body as a grid container */
+body {
+    display: grid;
+    grid-template-columns: 200px 1fr; /* Sidebar on the left (200px), content on the right */
+    grid-template-rows: auto 1fr; /* First row for header, second for main content */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+/* Sidebar */
+.sidebar {
+    grid-column: 1; /* Sidebar will be in the first column */
+    grid-row: 1 / span 2; /* Sidebar spans the entire height */
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Logo, upper side, lower side */
+    padding: 10px;
+    background-color: bisque;
+    border: 2px solid red; /* Add red border for visibility */
+}
+
+/* Sidebar Logo */
+.logo {
+    border: 2px solid red;
+    display: grid;
+    place-items: center;
+    height: 80px;
+}
+
+/* Sidebar Upper Navigation */
+.upperSide ul {
+    display: grid;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.upperSide li {
+    border: 2px solid red;
+    display: grid;
+    place-items: center;
+    height: 40px;
+}
+
+/* Sidebar Lower Navigation */
+.lowerSide ul {
+    display: grid;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lowerSide li {
+    border: 2px solid red;
+    display: grid;
+    place-items: center;
+    height: 40px;
+}
+
+/* Header (Top Container) */
+.topContainer {
+    grid-column: 2; /* Header is to the right of the sidebar */
+    grid-row: 1; /* Top row */
+    display: grid;
+    grid-template-columns: auto 1fr auto auto auto; /* Search button, search box, notification, profile, top buttons */
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid red; /* Add red border for visibility */
+}
+
+/* Individual Header Elements */
+.searchButton, .searchBox, .notificationButton, .profilePicture, .profileName {
+    border: 2px solid red;
+    display: grid;
+    place-items: center;
+    height: 50px;
+}
+
+/* Top Buttons */
+.topButtons {
+    grid-column: 5;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
+
+/* Buttons Styling */
+button {
+    border: 2px solid red;
+    display: grid;
+    place-items: center;
+    height: 40px;
+}
+
+/* Main Content Area (Under Header) */
+.mainContent {
+    grid-column: 2; /* Main content is to the right of the sidebar */
+    grid-row: 2; /* Below the header */
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* Projects (3 parts), Right pane (1 part) */
+    grid-template-rows: 1fr; /* Only one row for now */
+    gap: 10px;
+}
+
+/* Main Pane (Projects Section) */
+.mainPane {
+    grid-column: 1; /* Projects container in the first column */
+    display: grid;
+    place-items: center;
+    border: 2px solid red;
+}
+
+.projects {
+    border: 2px solid red;
+    display: grid;
+    place-items: center;
+    height: 400px;
+}
+
+/* Right Pane (Announcements and Trending) */
+.rightPane {
+    grid-column: 2; /* Right pane in the second column */
+    display: grid;
+    grid-template-rows: 1fr 1fr; /* Announcements on top, Trending below */
+    gap: 10px;
+    border: 2px solid red;
+}
+
+.announcements, .trending {
+    border: 2px solid red;
+    display: grid;
+    place-items: center;
+    height: 200px; /* Adjust height as needed */
+}
