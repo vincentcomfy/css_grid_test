@@ -1,19 +1,44 @@
 body {
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 11% 89%;
     grid-template-rows: 200px 1fr;
     height: 100vh;
-}
-
-body > div {
-    border: 2px solid red;
+    font-family: 'Roboto';
+    margin: 0;
 }
 
 .sidebar {
     display: grid;
     grid-column: 1 / 2;
     grid-row: 1 / 3;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    background-color: #1992d4;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.logo {
+    padding-top: 40px;
+    padding-left: 30px;
+    text-align: start;
+}
+
+.upperSide ul {
+    padding-left: 30px;
+    margin: 0;
+    margin-top: 60px;
+}
+
+.lowerSide ul {
+    padding-left: 30px;
+    margin: 0;
+    margin-top: -200px;
+}
+
+.upperSide ul li, .lowerSide ul li {
+    list-style-type: none;
+    margin-bottom: 20px;
 }
 
 .topContainer {
@@ -28,32 +53,86 @@ body > div {
     display: grid;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    grid-template-columns: 3fr 1fr;
-    gap: 20px;
-    border: 2px solid green;
+    grid-template-columns: 80% 20%;  /* 80% for mainPane, 20% for rightPane */
+    grid-template-rows: auto 1fr;  /* Title takes auto height, then content takes the rest */
+    gap: 0;
+    background-color: #e2e8f0;
+}
+
+.projectsTitle {
+    grid-column: 1 / 3;  /* Span both columns */
+    grid-row: 1 / 2;  /* Place it in the first row */
+    text-align: left;
+    font-size: 24px;
+    margin: 0;
+    padding-top: 46px;
+    padding-left: 25px;
 }
 
 .mainPane {
     display: grid;
-    grid-column: 1/2;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    border: 2px solid red;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for the project boxes */
+    gap: 10px;  /* Space between project cards */
+    grid-column: 1 / 2;  /* Constrain to the left column */
+    grid-row: 2 / 3;  /* Place it in the second row */
+    padding-left: 25px;
+    padding-top: 22px;
+}
+
+.projectBox {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 530px;      /* Set width to 50px */
+    height: 305px;     /* Set height to 30px */
+    text-align: center;
+    font-size: 14px;  /* Adjust font size to fit within smaller box */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectBox:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
 
 .rightPane {
     display: grid;
-    grid-column: 2/3;
-    grid-template-rows: 1fr 1fr;
-    border: 2px solid blue;
+    grid-column: 2 / 3;  /* Constrain to the right column */
+    grid-row: 2 / 3;  /* Place it in the second row */
+    gap: 0; /* No gap between sections */
 }
 
-.announcements {
-    display: grid;
-    grid-row: 1/2;
-}
-
+.announcements,
 .trending {
     display: grid;
-    grid-row: 2/3;
+    grid-template-columns: 1fr;  /* 1 column for the cards */
+    gap: 0;  /* No gap between title and cards */
+    padding: 0;  /* Remove padding around the sections */
+}
+
+.announcements h2,
+.trending h2 {
+    font-size: 20px;
+    margin: 0;  /* Remove default margin */
+    padding: 0;  /* Remove default padding */
+    text-align: left;
+    padding-left: 20px;  /* Same padding as the projects title */
+}
+
+.announcementBox,
+.trendingBox {
+    display: grid;
+    gap: 0;  /* No gap between the items */
+    padding: 0; /* No padding around the boxes */
+}
+
+.announcementItem,
+.trendingItem {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
