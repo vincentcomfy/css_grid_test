@@ -1,9 +1,8 @@
-/* Set up the body as a grid container */
 body {
     display: grid;
-    grid-template-columns: 20% 80%;  /* Sidebar 20%, MainContent 80% */
-    grid-template-rows: 200px 1fr 2fr;  /* Adjusted for main content height */
-    height: 100vh;  /* Full viewport height */
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 200px 1fr;
+    height: 100vh;
 }
 
 body > div {
@@ -12,8 +11,8 @@ body > div {
 
 .sidebar {
     display: grid;
-    grid-column: 1 / 2;  /* Sidebar takes up the first column */
-    grid-row: 1 / 3;      /* Sidebar spans all rows */
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
     grid-template-rows: 1fr 2fr 1fr;
 }
 
@@ -36,21 +35,19 @@ body > div {
 
 .mainPane {
     display: grid;
-    grid-column: 1/2;  /* MainPane takes the first column in mainContent */
+    grid-column: 1/2;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     border: 2px solid red;
 }
 
-/* Right pane setup (40% of mainContent width) */
 .rightPane {
     display: grid;
-    grid-column: 2/3;  /* RightPane takes the second column in mainContent */
-    grid-template-rows: 1fr 1fr;  /* Adjust height based on content */
-    border: 2px solid blue;  /* Border for visualization */
+    grid-column: 2/3;
+    grid-template-rows: 1fr 1fr;
+    border: 2px solid blue;
 }
 
-/* Styling for announcements and trending */
 .announcements {
     display: grid;
     grid-row: 1/2;
