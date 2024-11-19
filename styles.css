@@ -1,164 +1,62 @@
 /* Set up the body as a grid container */
 body {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-rows: auto 1fr;
-    grid-template-areas: 
-        "sidebar header"
-        "sidebar mainContent";
-    height: 100vh;
-    margin: 0;
-    border: 2px dashed black;
+    grid-template-columns: 20% 80%;  /* Sidebar 20%, MainContent 80% */
+    grid-template-rows: 200px 1fr 2fr;  /* Adjusted for main content height */
+    height: 100vh;  /* Full viewport height */
 }
 
-/* Sidebar */
+body > div {
+    border: 2px solid red;
+}
+
 .sidebar {
-    grid-column: 1; /* Sidebar will be in the first column */
-    grid-row: 1 / span 2; /* Sidebar spans the entire height */
     display: grid;
-    grid-template-rows: auto 1fr auto; /* Logo, upper side, lower side */
-    padding: 10px;
-    background-color: bisque;
-    border: 2px solid red; /* Add red border for visibility */
+    grid-column: 1 / 2;  /* Sidebar takes up the first column */
+    grid-row: 1 / 3;      /* Sidebar spans all rows */
+    grid-template-rows: 1fr 2fr 1fr;
 }
 
-/* Sidebar Logo */
-.logo {
-    border: 2px solid red;
-    display: grid;
-    place-items: center;
-    height: 80px;
-}
-
-/* Sidebar Upper Navigation */
-.upperSide ul {
-    display: grid;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.upperSide li {
-    border: 2px solid red;
-    display: grid;
-    place-items: center;
-    height: 40px;
-}
-
-/* Sidebar Lower Navigation */
-.lowerSide ul {
-    display: grid;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.lowerSide li {
-    border: 2px solid red;
-    display: grid;
-    place-items: center;
-    height: 40px;
-}
-
-/* Header (Top Container) */
 .topContainer {
-    grid-column: 2; /* Header is to the right of the sidebar */
-    grid-row: 1; /* Top row */
     display: grid;
-    grid-template-columns: auto 1fr auto auto auto; /* Search button, search box, notification, profile, top buttons */
-    gap: 10px;
-    padding: 10px;
-    border: 2px solid red; /* Add red border for visibility */
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
 }
 
-/* Individual Header Elements */
-.searchButton, .searchBox, .notificationButton, .profilePicture, .profileName {
-    border: 2px solid red;
-    display: grid;
-    place-items: center;
-    height: 50px;
-}
-
-/* Top Buttons */
-.topButtons {
-    grid-column: 5;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    justify-items: center;
-}
-
-/* Buttons Styling */
-button {
-    border: 2px solid red;
-    display: grid;
-    place-items: center;
-    height: 40px;
-}
-
-/* Main Content Area (Under Header) */
 .mainContent {
-    grid-column: 2; /* Main content is to the right of the sidebar */
-    grid-row: 2; /* Below the header */
     display: grid;
-    grid-template-columns: 3fr 1fr; /* Projects (3 parts), Right pane (1 part) */
-    grid-template-rows: 1fr; /* Only one row for now */
-    gap: 10px;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    border: 2px solid green;
 }
 
-/* Main Pane (Projects Section) */
 .mainPane {
-    grid-column: 1; /* Projects container in the first column */
     display: grid;
-    place-items: start; /* Align items to the start (top left) */
+    grid-column: 1/2;  /* MainPane takes the first column in mainContent */
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     border: 2px solid red;
-    grid-template-columns: 1fr; /* Take up the full width available */
 }
 
-/* Projects Container */
-.projects {
-    border: 2px solid red;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
-    grid-template-rows: repeat(2, 1fr); /* 2 rows */
-    gap: 10px;
-    height: 100%; /* Ensure it fills the space */
-    padding: 10px; /* Padding for spacing between content */
-}
-
-/* Project Boxes */
-.projectBox {
-    border: 2px solid red;
-    display: grid;
-    place-items: center;
-    height: 100%; /* Each project box takes full height of its grid cell */
-}
-
-/* Right Pane (Announcements and Trending) */
+/* Right pane setup (40% of mainContent width) */
 .rightPane {
-    grid-column: 2; /* Right pane in the second column */
     display: grid;
-    grid-template-rows: 1fr 1fr; /* Announcements on top, Trending below */
-    gap: 10px;
-    border: 2px solid red;
+    grid-column: 2/3;  /* RightPane takes the second column in mainContent */
+    grid-template-rows: 1fr 1fr;  /* Adjust height based on content */
+    border: 2px solid blue;  /* Border for visualization */
 }
 
-.announcements, .trending {
-    border: 2px solid red;
+/* Styling for announcements and trending */
+.announcements {
     display: grid;
-    place-items: center;
-    height: 200px; /* Adjust height as needed */
+    grid-row: 1/2;
 }
 
-.announcementBox, .trendingBox {
+.trending {
     display: grid;
-    grid-template-columns: 1fr; /* Stack the sections vertically */
-    gap: 10px;
-}
-
-.announcementItem, .trendingItem {
-    border: 2px solid red;
-    display: grid;
-    place-items: center;
-    height: 60px; /* Adjust height as needed */
+    grid-row: 2/3;
 }
