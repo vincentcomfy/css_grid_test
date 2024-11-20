@@ -49,6 +49,11 @@ body {
     grid-template-rows: 1fr;
 }
 
+.searchButton {
+    width: 10px;
+    height: 10px;
+}
+
 .mainContent {
     display: grid;
     grid-column: 2 / 3;
